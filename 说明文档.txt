@@ -1,0 +1,12 @@
+tiff格式是频域图的幅度F经过以下运算得到的：
+F = log(1+F)
+F = F/F.max()
+F = (F-0.5)/0.5
+真实UPEK指纹的频域经过处理后，存在trainA
+合成指纹频域经处理后，存在trainB
+
+
+临时将归一化的tiff进行显示：
+F' = log{exp[16*(0.5F+0.5)]-1}
+F'[F'<1]=1 #把所有小于1的元素设置为1，保证取log后数值都是正的
+plt.subplot(111),plt.imshow(np.log(F'),cmap='gray'),plt.title('magnitude')
