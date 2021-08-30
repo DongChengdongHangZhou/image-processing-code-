@@ -64,6 +64,7 @@ def spectrum_adjust(mat,energy_list1,energy_list2):
                 mat[i][j] = mat[i][j]*energy_list1[value]/energy_list2[value]
     return mat
 
+
 def process(spec,img_synth):
     real_style_mag = 0.5*spec + 0.5
     f = np.fft.fft2(img_synth)
